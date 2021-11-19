@@ -1,8 +1,8 @@
 # Nama Anggota Kelompok:
-Ahmad Ibnu Malik Rahman / 5025201232
-Mohammad Nouval Bachrezi / 5025201030
-Meisya Salsabila Indrijo Putri / 5025201114
-Aaliyah Farah Adibah / 5025201070
+5025201232 / Ahmad Ibnu Malik Rahman
+5025201030 / Mohammad Nouval Bachrezi 
+5025201114 / Meisya Salsabila Indrijo Putri
+5025201070 / Aaliyah Farah Adibah
 
 
 # Deskripsi Final Project:
