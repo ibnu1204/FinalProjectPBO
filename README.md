@@ -6,8 +6,7 @@
 
 
 # Deskripsi Final Project:
-
-
+Run & Hide adalah game yang dimainkan dengan tujuan untuk mengumpulkan semua makanan yang ada di dalam game tanpa tertangkap oleh penjaga. Game ini terdiri dari 3 level, yaitu Easy, Medium dan Hard. Setiap levelnya dibedakan oleh banyaknya penjaga, makanan, dan rintangan yang ada.
 
 
 # Referensi:
