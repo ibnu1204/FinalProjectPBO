@@ -17,12 +17,13 @@ import javax.swing.JTextArea;
 public class HighScore {
     JFrame window;
     Container con;
-    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, levelNamePanel, highScoreNamePanel,
-            easyButtonPanel, mediumButtonPanel, hardButtonPanel, backButtonPanel;
-    JLabel titleNameLabel, levelNameLabel, highScoreNameLabel;
+    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, 
+            aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, easyButtonPanel, 
+            mediumButtonPanel, hardButtonPanel, backButtonPanel;
+    JLabel titleNameLabel, levelNameLabel,aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-    JButton startButton, levelButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
+    JButton startButton, levelButton, aboutButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
     JTextArea mainTextArea;
 
     /*StartScreenHandler tsHandler = new StartScreenHandler();
