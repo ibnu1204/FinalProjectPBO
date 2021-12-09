@@ -19,12 +19,12 @@ public class Welcome {
 	JFrame window;
 	Container con;
 	JPanel mainPanel = new JPanel(new BorderLayout()), titleNamePanel, startButtonPanel, levelButtonPanel,
-			highScoreButtonPanel, levelNamePanel, highScoreNamePanel, easyButtonPanel, mediumButtonPanel,
-			hardButtonPanel, backButtonPanel;
-	JLabel titleNameLabel, levelNameLabel, highScoreNameLabel;
+			highScoreButtonPanel, aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, 
+			easyButtonPanel, mediumButtonPanel, hardButtonPanel, backButtonPanel;
+	JLabel titleNameLabel, levelNameLabel, aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
 	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
 	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-	JButton startButton, levelButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
+	JButton startButton, levelButton, highScoreButton, aboutButton, easyButton, mediumButton, hardButton, backButton;
 	JTextArea mainTextArea;
 
 	StartScreenHandler tsHandler = new StartScreenHandler();
@@ -80,9 +80,21 @@ public class Welcome {
 		levelButton.addActionListener(aHandler);
 		levelButton.setFocusPainted(false);
 
+		// About
+		aboutButtonPanel = new JPanel();
+		aboutButtonPanel.setBounds(300, 400, 200, 50);
+		aboutButtonPanel.setBackground(Color.black);
+
+		aboutButton = new JButton("ABOUT");
+		aboutButton.setBackground(Color.black);
+		aboutButton.setForeground(Color.white);
+		aboutButton.setFont(normalFont);
+		aboutButton.addActionListener(aHandler);
+		aboutButton.setFocusPainted(false);
+
 		// Highscore
 		highScoreButtonPanel = new JPanel();
-		highScoreButtonPanel.setBounds(300, 400, 200, 50);
+		highScoreButtonPanel.setBounds(300, 450, 200, 50);
 		highScoreButtonPanel.setBackground(Color.black);
 
 		highScoreButton = new JButton("HIGHSCORE");
@@ -95,11 +107,13 @@ public class Welcome {
 		titleNamePanel.add(titleNameLabel);
 		startButtonPanel.add(startButton);
 		levelButtonPanel.add(levelButton);
+		aboutButtonPanel.add(aboutButton);
 		highScoreButtonPanel.add(highScoreButton);
 
 		con.add(titleNamePanel);
 		con.add(startButtonPanel);
 		con.add(levelButtonPanel);
+		con.add(aboutButtonPanel);
 		con.add(highScoreButtonPanel);
 
 		window.setVisible(true);
@@ -118,6 +132,7 @@ public class Welcome {
 		titleNamePanel.setVisible(false);
 		startButtonPanel.setVisible(false);
 		levelButtonPanel.setVisible(false);
+		aboutButtonPanel.setVisible(false);
 		highScoreButtonPanel.setVisible(false);
 
 		Game game = new Game();
@@ -133,6 +148,12 @@ public class Welcome {
 				window.setVisible(false);
 				Level level = new Level();
 				level.window.setVisible(true);
+				window.dispose();
+			}
+			else if(event.getActionCommand().equals("ABOUT")){
+				window.setVisible(false);
+				About about = new About();
+				about.window.setVisible(true);
 				window.dispose();
 			}
 			else if(event.getActionCommand().equals("HIGHSCORE")){
