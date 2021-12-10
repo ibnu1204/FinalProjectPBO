@@ -1,13 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,14 +13,12 @@ import javax.swing.JTextArea;
 public class About {
     JFrame window;
     Container con;
-    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, 
-            aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, easyButtonPanel, 
-            mediumButtonPanel, hardButtonPanel, backButtonPanel;
-    JLabel titleNameLabel, levelNameLabel,aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
+    JPanel aboutNamePanel, aboutTextPanel, backButtonPanel;
+    JLabel aboutNameLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 80);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 20);
-    JButton startButton, levelButton, aboutButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
-    JTextArea mainTextArea;
+    JButton backButton;
+    JTextArea aboutTextArea;
 
     /*StartScreenHandler tsHandler = new StartScreenHandler();
     LevelScreenHandler lsHandler = new LevelScreenHandler();
@@ -42,7 +36,7 @@ public class About {
 
     public About() {
 
-        window = new JFrame("Run & Hide 2");
+        window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.black);
@@ -53,15 +47,25 @@ public class About {
 
         // About
 		aboutNamePanel = new JPanel();
-		aboutNamePanel.setBounds(100, 100, 500, 50);
+		aboutNamePanel.setBounds(200, 100, 400, 100);
 		aboutNamePanel.setBackground(Color.black);
 		aboutNameLabel = new JLabel("ABOUT");
 		aboutNameLabel.setForeground(Color.white);
 		aboutNameLabel.setFont(titleFont);
 
-		aboutMessageLabel = new JLabel("Run & Hide ........");
-		aboutMessageLabel.setForeground(Color.white);
-        aboutMessageLabel.setFont(normalFont);
+        // About Text
+        aboutTextPanel = new JPanel();
+        aboutTextPanel.setBounds(100, 250, 600, 300);
+        aboutTextPanel.setBackground(Color.black);
+			
+		aboutTextArea = new JTextArea("Run & Hide adalah game yang dimainkan dengan tujuan untuk mengumpulkan semua makanan yang ada di dalam game tanpa tertangkap oleh penjaga. Game ini terdiri dari 3 level, yaitu Easy, Medium dan Hard. Setiap levelnya dibedakan oleh banyaknya penjaga, makanan, dan rintangan yang ada.");
+		aboutTextArea.setBounds(100, 100, 600, 300);
+		aboutTextArea.setBackground(Color.black);
+		aboutTextArea.setForeground(Color.white);
+		aboutTextArea.setFont(normalFont);
+		aboutTextArea.setLineWrap(true);
+		aboutTextArea.setWrapStyleWord(true); 
+		aboutTextArea.setEditable(false);
 
 		// Back
 		backButtonPanel = new JPanel();
@@ -75,9 +79,11 @@ public class About {
 		backButton.setFocusPainted(false);
 
 		aboutNamePanel.add(aboutNameLabel);
+        aboutTextPanel.add(aboutTextArea);
 		backButtonPanel.add(backButton);
 
 		con.add(aboutNamePanel);
+        con.add(aboutTextPanel);
 		con.add(backButtonPanel);
     }
 
