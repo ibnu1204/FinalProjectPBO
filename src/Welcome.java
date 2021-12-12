@@ -2,11 +2,9 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-//import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,7 +23,6 @@ public class Welcome {
 	StartScreenHandler tsHandler = new StartScreenHandler();
 	AnotherScreenHandler aHandler = new AnotherScreenHandler();
 
-	// ImageIcon image = new ImageIcon("welcome.jpg");
 
 	public static void main(String[] args) {
 
@@ -40,11 +37,10 @@ public class Welcome {
 		window.getContentPane().setBackground(Color.blue);
 		window.setLayout(new BorderLayout());
 		window.setLocationRelativeTo(null);
-		// window.setIconImage(image.getImage());
 		con = window.getContentPane();
 
 		// Main Panel
-		//mainPanel.setBounds(300, 500, 200, 50);
+
 		mainPanel.setBackground(Color.black);
 
 		// Title
