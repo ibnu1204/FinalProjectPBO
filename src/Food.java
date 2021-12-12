@@ -12,7 +12,7 @@ public class Food {
     public final float eatenDistanceSquared = 15*15; // Jarak^2 agar makanan otomatis termakan oleh player
     private final Player eater;
 
-    private int score = 0;
+    //private int score = 0;
 
 
     public Food(int x, int y, Player player) {
