@@ -12,25 +12,21 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class Welcome {
 
 	JFrame window;
 	Container con;
-	JPanel mainPanel = new JPanel(new BorderLayout()), titleNamePanel, startButtonPanel, levelButtonPanel,
-			highScoreButtonPanel, aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, 
-			easyButtonPanel, mediumButtonPanel, hardButtonPanel, backButtonPanel;
-	JLabel titleNameLabel, levelNameLabel, aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
+	JPanel mainPanel = new JPanel(new BorderLayout()), titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, aboutButtonPanel;
+	JLabel titleNameLabel;
 	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
 	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-	JButton startButton, levelButton, highScoreButton, aboutButton, easyButton, mediumButton, hardButton, backButton;
-	JTextArea mainTextArea;
+	JButton startButton, levelButton, highScoreButton, aboutButton;
 
 	StartScreenHandler tsHandler = new StartScreenHandler();
 	AnotherScreenHandler aHandler = new AnotherScreenHandler();
 
-	// ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
+	// ImageIcon image = new ImageIcon("welcome.jpg");
 
 	public static void main(String[] args) {
 
@@ -42,11 +38,15 @@ public class Welcome {
 		window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.getContentPane().setBackground(Color.black);
-		window.setLayout(null);
+		window.getContentPane().setBackground(Color.blue);
+		window.setLayout(new BorderLayout());
 		window.setLocationRelativeTo(null);
-		// window.setIconImage(logo.getImage());
+		// window.setIconImage(image.getImage());
 		con = window.getContentPane();
+
+		// Main Panel
+		//mainPanel.setBounds(300, 500, 200, 50);
+		mainPanel.setBackground(Color.black);
 
 		// Title
 		titleNamePanel = new JPanel();
@@ -80,21 +80,9 @@ public class Welcome {
 		levelButton.addActionListener(aHandler);
 		levelButton.setFocusPainted(false);
 
-		// About
-		aboutButtonPanel = new JPanel();
-		aboutButtonPanel.setBounds(300, 400, 200, 50);
-		aboutButtonPanel.setBackground(Color.black);
-
-		aboutButton = new JButton("ABOUT");
-		aboutButton.setBackground(Color.black);
-		aboutButton.setForeground(Color.white);
-		aboutButton.setFont(normalFont);
-		aboutButton.addActionListener(aHandler);
-		aboutButton.setFocusPainted(false);
-
 		// Highscore
 		highScoreButtonPanel = new JPanel();
-		highScoreButtonPanel.setBounds(300, 450, 200, 50);
+		highScoreButtonPanel.setBounds(300, 400, 200, 50);
 		highScoreButtonPanel.setBackground(Color.black);
 
 		highScoreButton = new JButton("HIGHSCORE");
@@ -104,17 +92,31 @@ public class Welcome {
 		highScoreButton.addActionListener(aHandler);
 		highScoreButton.setFocusPainted(false);
 
+		// About
+		aboutButtonPanel = new JPanel();
+		aboutButtonPanel.setBounds(300, 450, 200, 50);
+		aboutButtonPanel.setBackground(Color.black);
+
+		aboutButton = new JButton("ABOUT");
+		aboutButton.setBackground(Color.black);
+		aboutButton.setForeground(Color.white);
+		aboutButton.setFont(normalFont);
+		aboutButton.addActionListener(aHandler);
+		aboutButton.setFocusPainted(false);
+
 		titleNamePanel.add(titleNameLabel);
 		startButtonPanel.add(startButton);
 		levelButtonPanel.add(levelButton);
-		aboutButtonPanel.add(aboutButton);
 		highScoreButtonPanel.add(highScoreButton);
+		aboutButtonPanel.add(aboutButton);
 
+		
 		con.add(titleNamePanel);
 		con.add(startButtonPanel);
 		con.add(levelButtonPanel);
-		con.add(aboutButtonPanel);
 		con.add(highScoreButtonPanel);
+		con.add(aboutButtonPanel);
+		con.add(mainPanel);
 
 		window.setVisible(true);
 	}
@@ -129,11 +131,12 @@ public class Welcome {
 	}
 
 	public void GameScreen() {
+		mainPanel.setVisible(false);
 		titleNamePanel.setVisible(false);
 		startButtonPanel.setVisible(false);
 		levelButtonPanel.setVisible(false);
-		aboutButtonPanel.setVisible(false);
 		highScoreButtonPanel.setVisible(false);
+		aboutButtonPanel.setVisible(false);
 
 		Game game = new Game();
 
@@ -144,25 +147,22 @@ public class Welcome {
 
 		public void actionPerformed(ActionEvent event) {
 
-			if(event.getActionCommand().equals("LEVEL")){
+			if (event.getActionCommand().equals("LEVEL")) {
 				window.setVisible(false);
 				Level level = new Level();
 				level.window.setVisible(true);
 				window.dispose();
-			}
-			else if(event.getActionCommand().equals("ABOUT")){
+			} else if (event.getActionCommand().equals("HIGHSCORE")) {
+				window.setVisible(false);
+				HighScore highScore = new HighScore();
+				highScore.window.setVisible(true);
+				window.dispose();
+			} else if (event.getActionCommand().equals("ABOUT")) {
 				window.setVisible(false);
 				About about = new About();
 				about.window.setVisible(true);
 				window.dispose();
 			}
-			else if(event.getActionCommand().equals("HIGHSCORE")){
-				window.setVisible(false);
-				HighScore highScore = new HighScore();
-				highScore.window.setVisible(true);
-				window.dispose();
-			}
-
 		}
 	}
 }

@@ -1,48 +1,41 @@
-import javax.swing.*;
-import java.awt.*;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class HighScore {
-    JFrame window;
-    Container con;
-    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, 
-            aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, easyButtonPanel, 
-            mediumButtonPanel, hardButtonPanel, backButtonPanel;
-    JLabel titleNameLabel, levelNameLabel,aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-    JButton startButton, levelButton, aboutButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
-    JTextArea mainTextArea;
+	JFrame window;
+	Container con;
+	JPanel highScoreNamePanel, backButtonPanel;
+	JLabel highScoreNameLabel;
+	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+	JButton backButton;
 
-    /*StartScreenHandler tsHandler = new StartScreenHandler();
-    LevelScreenHandler lsHandler = new LevelScreenHandler();
-    HighScoreScreenHandler hssHandler = new HighScoreScreenHandler();
-    BackHandler bHandler = new BackHandler();
-    */
-    HighScoreHandler hsHandler = new HighScoreHandler();
+	/*
+	 * StartScreenHandler tsHandler = new StartScreenHandler();
+	 * LevelScreenHandler lsHandler = new LevelScreenHandler();
+	 * HighScoreScreenHandler hssHandler = new HighScoreScreenHandler();
+	 * BackHandler bHandler = new BackHandler();
+	 */
+	HighScoreHandler hsHandler = new HighScoreHandler();
 
-    //ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
+	// ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        new HighScore();
-    }
+		new HighScore();
+	}
 
-    public HighScore() {
+	public HighScore() {
 
-        window = new JFrame("Run & Hide 2");
+		window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.black);
@@ -51,7 +44,7 @@ public class HighScore {
 		// window.setIconImage(logo.getImage());
 		con = window.getContentPane();
 
-        // HighScore
+		// HighScore
 		highScoreNamePanel = new JPanel();
 		highScoreNamePanel.setBounds(100, 100, 600, 100);
 		highScoreNamePanel.setBackground(Color.black);
@@ -75,18 +68,18 @@ public class HighScore {
 
 		con.add(highScoreNamePanel);
 		con.add(backButtonPanel);
-    }
+	}
 
-    public class HighScoreHandler implements ActionListener {
+	public class HighScoreHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
 
-			if(event.getActionCommand().equals("BACK")){
+			if (event.getActionCommand().equals("BACK")) {
 				window.setVisible(false);
 				Welcome welcome = new Welcome();
 				welcome.window.setVisible(true);
 				window.dispose();
 			}
-        }
-    }
+		}
+	}
 }

@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,32 +12,34 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class Level {
-    JFrame window;
-    Container con;
-    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, 
-            aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, easyButtonPanel, 
-            mediumButtonPanel, hardButtonPanel, backButtonPanel;
-    JLabel titleNameLabel, levelNameLabel,aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-    JButton startButton, levelButton, aboutButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
-    JTextArea mainTextArea;
+	JFrame window;
+	Container con;
+	JPanel levelNamePanel, easyButtonPanel, mediumButtonPanel, hardButtonPanel, backButtonPanel;
+	JLabel levelNameLabel;
+	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+	JButton easyButton, mediumButton, hardButton, backButton;
 
+	/*
+	 * StartScreenHandler tsHandler = new StartScreenHandler();
+	 * LevelScreenHandler lsHandler = new LevelScreenHandler();
+	 * HighScoreScreenHandler hssHandler = new HighScoreScreenHandler();
+	 * BackHandler bHandler = new BackHandler();
+	 */
 	LevelHandler lHandler = new LevelHandler();
 
-    //ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
+	// ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        new Level();
-    }
+		new Level();
+	}
 
-    public Level() {
+	public Level() {
 
-        window = new JFrame("Run & Hide 2");
+		window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.black);
@@ -42,7 +48,7 @@ public class Level {
 		// window.setIconImage(logo.getImage());
 		con = window.getContentPane();
 
-        // Level
+		// Level
 		levelNamePanel = new JPanel();
 		levelNamePanel.setBounds(200, 100, 400, 100);
 		levelNamePanel.setBackground(Color.black);
@@ -105,45 +111,34 @@ public class Level {
 		con.add(mediumButtonPanel);
 		con.add(hardButtonPanel);
 		con.add(backButtonPanel);
-    }
+	}
 
 	public class LevelHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
 
-			if(event.getActionCommand().equals("EASY")){				
-				GameScreen();
-			}	
-
-			else if(event.getActionCommand().equals("MEDIUM")){
-				GameScreen();
-			}
-			else if(event.getActionCommand().equals("HARD")){
-				GameScreen();
-			}
-		}
-	}
-	
-	public void GameScreen() {
-		levelNamePanel.setVisible(false);
-		easyButtonPanel.setVisible(false);
-		mediumButtonPanel.setVisible(false);
-		hardButtonPanel.setVisible(false);
-		backButtonPanel.setVisible(false);
-		Game game = new Game();
-		window.add(game, BorderLayout.CENTER);
-	}
-	
-	public class AnotherScreenHandler implements ActionListener {
-
-		public void actionPerformed(ActionEvent event) {
-
-			if(event.getActionCommand().equals("BACK")){
+			if (event.getActionCommand().equals("EASY")) {
+				window.setVisible(false);
+				Welcome welcome = new Welcome();
+				welcome.window.setVisible(true);
+				window.dispose();
+			} else if (event.getActionCommand().equals("MEDIUM")) {
+				window.setVisible(false);
+				Welcome welcome = new Welcome();
+				welcome.window.setVisible(true);
+				window.dispose();
+			} else if (event.getActionCommand().equals("HARD")) {
+				window.setVisible(false);
+				Welcome welcome = new Welcome();
+				welcome.window.setVisible(true);
+				window.dispose();
+			} else if (event.getActionCommand().equals("BACK")) {
 				window.setVisible(false);
 				Welcome welcome = new Welcome();
 				welcome.window.setVisible(true);
 				window.dispose();
 			}
+
 		}
 	}
 }

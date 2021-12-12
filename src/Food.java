@@ -32,7 +32,7 @@ public class Food {
     public void eat() {
         numberOfFood -= 1;
         eaten = true;
-        score += 1;
+        //score += 10;
     }
 
     public void eatIfPossible() {
@@ -43,6 +43,7 @@ public class Food {
         // Jika bisa dimakan, maka food akan langsung dimakan di method ini
         if (!eaten && dx*dx + dy*dy < eatenDistanceSquared) {
             eat();
+            //score += 10;
         }
     }
 }

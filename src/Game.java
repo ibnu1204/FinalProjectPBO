@@ -13,13 +13,13 @@ public class Game extends JPanel {
     private static int gameState = 0; // 0 --> awal mulai; 1 --> play; 2 --> pause; 3 --> lose; 4 --> win
 
     // 1 > Panel Parameters
-    public static int width = 800, height = 800;
-    private Color background = Color.BLUE;
+    public static int width = 800, height = 700;
+    private Color background = Color.BLACK;
     public static JLabel debugLabel; // for debugging
 
     // 2 > Game Parameters
-    private int walk = KeyEvent.VK_W;
-    private int backward = KeyEvent.VK_S;
+    private int walk = KeyEvent.VK_UP;
+    private int backward = KeyEvent.VK_DOWN;
     private int turnLeft = KeyEvent.VK_LEFT;
     private int turnRight = KeyEvent.VK_RIGHT;
     private static Timer timer;
@@ -43,7 +43,7 @@ public class Game extends JPanel {
     private Color foodColor = new Color(50, 180, 255);
 
     // 5> Score Parameters
-    private int Score = 0;
+    private int score = 0;
     private Color scoreColor = Color.WHITE;
 
     // a > Initialize game objects
@@ -75,7 +75,7 @@ public class Game extends JPanel {
 
         // 3 > Inisialisasi Objek2 pada game
         // a > Wall
-        wall = new Wall("level_1.txt");
+        wall = new Wall("level_3.txt");
 
         // b > Player
         player = new Player(550, 500, 270);
@@ -128,7 +128,8 @@ public class Game extends JPanel {
         g.drawLine(x, y, x_, y_);
 
         // 5 > Paint enemy
-
+        g.setColor(enemyColor);
+        
         for (Enemy someEnemy : enemies) {
             x = (int) someEnemy.getX();
             y = (int) someEnemy.getY();
@@ -151,6 +152,10 @@ public class Game extends JPanel {
             g.drawLine(x, y, x_, y_);
         }
 
+        // 6 > Set Score
+        //score = 0;
+        g.setColor(scoreColor);
+        g.drawString("Score: " + score, 50, 100);
         
     }
 
@@ -259,6 +264,12 @@ public class Game extends JPanel {
             // 3 > Cek apakah ada food yang dimakan, dan kemudian cek state
             for (Food food : foods) {
                 food.eatIfPossible();
+                //score += 10;
+            }
+
+            for (Food food : foods) {
+                if (food.eaten)
+                    score += 10;
             }
 
             if (Food.numberOfFood == 0) { // Apabila makanan sudah habis semua, game menang
