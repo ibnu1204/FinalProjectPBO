@@ -13,7 +13,7 @@ public class Game extends JPanel {
     private static int gameState = 0; // 0 --> awal mulai; 1 --> play; 2 --> pause; 3 --> lose; 4 --> win
 
     // 1 > Panel Parameters
-    public static int width = 800, height = 700;
+    public static int width = 780, height = 700;
     private Color background = Color.BLACK;
     public static JLabel debugLabel; // for debugging
 
@@ -37,7 +37,7 @@ public class Game extends JPanel {
     private Color enemyColor = Color.ORANGE;
 
     // 4 > Food Parameters
-    private int numOfFoods = 4;
+    private int numOfFoods = 5;
     private int foodRadius = 10;
     private int halfFoodRadius = 5;
     private Color foodColor = new Color(50, 180, 255);
@@ -51,7 +51,6 @@ public class Game extends JPanel {
     private Player player;
     private Enemy[] enemies;
     private Food[] foods;
-
 
     public Game() {
         // 1 > Inisialisasi Fitur Frame
@@ -76,14 +75,21 @@ public class Game extends JPanel {
 
         // 3 > Inisialisasi Objek2 pada game
         // a > Wall
-        wall = new Wall("level_3.txt");
+        if(Level.getLevel == 2) 
+        	wall = new Wall("level_2.txt");
+        else if(Level.getLevel == 3)
+        	wall = new Wall("level_3.txt");
+        else 
+        	wall = new Wall("level_3.txt");
 
         // b > Player
         player = new Player(550, 500, 270);
 
-        enemies = new Enemy[2];
+        enemies = new Enemy[4];
         enemies[0] = new Enemy(100, 300, 0, player);
-        enemies[1] = new Enemy(700, 200, 10, player);
+        enemies[1] = new Enemy(700, 300, 10, player);
+        enemies[2] = new Enemy(400 , 100, 0, player);
+        enemies[3] = new Enemy(400, 700, 10, player);
 
         foods = new Food[numOfFoods];
         for (int i = 0; i < numOfFoods; i++) {
@@ -136,7 +142,7 @@ public class Game extends JPanel {
             y = (int) someEnemy.getY();
 
             // Paint vision indicatior enemy
-            g.setColor(Color.darkGray);
+            g.setColor(Color.ORANGE);
             x_ = x + (int) (someEnemy.visionRadius * Math.cos(someEnemy.toRadian() + someEnemy.visionAngle));
             y_ = y + (int) (someEnemy.visionRadius * Math.sin(someEnemy.toRadian() + someEnemy.visionAngle));
             g.drawLine(x, y, x_, y_);
@@ -293,4 +299,7 @@ public class Game extends JPanel {
             repaint();
         }
     }
-}
+}      
+
+
+
