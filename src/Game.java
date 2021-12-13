@@ -52,6 +52,7 @@ public class Game extends JPanel {
     private Enemy[] enemies;
     private Food[] foods;
 
+
     public Game() {
         // 1 > Inisialisasi Fitur Frame
         setSize(width, height);
@@ -75,12 +76,7 @@ public class Game extends JPanel {
 
         // 3 > Inisialisasi Objek2 pada game
         // a > Wall
-        if(Level.getLevel == 2) 
-        	wall = new Wall("level_2.txt");
-        else if(Level.getLevel == 3)
-        	wall = new Wall("level_3.txt");
-        else 
-        	wall = new Wall("level_3.txt");
+        wall = new Wall("level_3.txt");
 
         // b > Player
         player = new Player(550, 500, 270);
@@ -140,7 +136,7 @@ public class Game extends JPanel {
             y = (int) someEnemy.getY();
 
             // Paint vision indicatior enemy
-            g.setColor(Color.ORANGE);
+            g.setColor(Color.darkGray);
             x_ = x + (int) (someEnemy.visionRadius * Math.cos(someEnemy.toRadian() + someEnemy.visionAngle));
             y_ = y + (int) (someEnemy.visionRadius * Math.sin(someEnemy.toRadian() + someEnemy.visionAngle));
             g.drawLine(x, y, x_, y_);
@@ -297,7 +293,4 @@ public class Game extends JPanel {
             repaint();
         }
     }
-}      
-
-
-
+}
