@@ -18,21 +18,24 @@ public class Food {
     public Food(int x, int y, Player player) {
         this.x = x;
         this.y = y;
+        this.score = score;
         eater = player;
-        numberOfFood += 3;
+        numberOfFood += 5;
     }
 
+ 
+   
     public Food(Player player) {
         this.x = (int) (Math.random() * width);
         this.y = (int) (Math.random() * height);
         eater = player;
         numberOfFood += 1;
     }
-
+    
     public void eat() {
         numberOfFood -= 1;
         eaten = true;
-        score += 1;
+        //score += 1;
     }
 
     public void eatIfPossible() {
