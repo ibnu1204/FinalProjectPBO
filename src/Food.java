@@ -30,7 +30,7 @@ public class Food {
     }
     
     public void eat() {
-        numberOfFood == 1;
+        numberOfFood -= 1;
         eaten = true;
         //score += 1;
     }
