@@ -83,7 +83,7 @@ public class Game extends JPanel {
         	wall = new Wall("level_3.txt");
 
         // b > Player
-        player = new Player(500, 500, 270);
+        player = new Player(550, 500, 270);
 
         enemies = new Enemy[4];
         enemies[0] = new Enemy(100, 300, 0, player);
