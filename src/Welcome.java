@@ -40,7 +40,6 @@ public class Welcome {
 		con = window.getContentPane();
 
 		// Main Panel
-
 		mainPanel.setBackground(Color.black);
 
 		// Title
