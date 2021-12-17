@@ -14,7 +14,6 @@ public class Food {
 
     private int score = 0;
 
-
     public Food(int x, int y, Player player) {
         this.x = x;
         this.y = y;
@@ -22,8 +21,6 @@ public class Food {
         eater = player;
         numberOfFood += 5;
     }
-
- 
    
     public Food(Player player) {
         this.x = (int) (Math.random() * width);
@@ -33,7 +30,7 @@ public class Food {
     }
     
     public void eat() {
-        numberOfFood -= 1;
+        numberOfFood == 1;
         eaten = true;
         //score += 1;
     }
