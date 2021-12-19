@@ -12,8 +12,6 @@ public class Food {
     public final float eatenDistanceSquared = 15*15; // Jarak^2 agar makanan otomatis termakan oleh player
     private final Player eater;
 
-    private int score = 0;
-
     public Food(int x, int y, Player player) {
         this.x = x;
         this.y = y;
@@ -32,7 +30,6 @@ public class Food {
     public void eat() {
         numberOfFood -= 1;
         eaten = true;
-        //score += 1;
     }
 
     public void eatIfPossible() {
