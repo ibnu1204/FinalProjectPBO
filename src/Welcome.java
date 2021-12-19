@@ -118,9 +118,7 @@ public class Welcome {
 	public class StartScreenHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-
 			GameScreen();
-
 		}
 	}
 
