@@ -80,7 +80,7 @@ public class Game extends JPanel {
         else if(Level.getLevel == 3)
         	wall = new Wall("level_3.txt");
         else 
-        	wall = new Wall("level_3.txt");
+        	wall = new Wall("level_1txt");
 
         // b > Player
         player = new Player(550, 500, 270);
