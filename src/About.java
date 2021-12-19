@@ -11,28 +11,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class About {
-    JFrame window;
-    Container con;
-    JPanel aboutNamePanel, aboutTextPanel, backButtonPanel;
-    JLabel aboutNameLabel;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 80);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 20);
-    JButton backButton;
-    JTextArea aboutTextArea;
+    public JFrame window;
+    private Container con;
+    private JPanel aboutNamePanel, aboutTextPanel, backButtonPanel;
+    private JLabel aboutNameLabel;
+    private Font titleFont = new Font("Times New Roman", Font.PLAIN, 80);
+    private Font normalFont = new Font("Times New Roman", Font.PLAIN, 20);
+    private JButton backButton;
+    private JTextArea aboutTextArea;
 
     /*StartScreenHandler tsHandler = new StartScreenHandler();
     LevelScreenHandler lsHandler = new LevelScreenHandler();
     HighScoreScreenHandler hssHandler = new HighScoreScreenHandler();
     BackHandler bHandler = new BackHandler();
     */
-    AboutHandler aboutHandler = new AboutHandler();
+	private AboutHandler aboutHandler = new AboutHandler();
 
-    //ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
-
-    public static void main(String[] args) {
-
-        new About();
-    }
 
     public About() {
 
@@ -42,7 +36,6 @@ public class About {
 		window.getContentPane().setBackground(Color.black);
 		window.setLayout(null);
 		window.setLocationRelativeTo(null);
-		// window.setIconImage(logo.getImage());
 		con = window.getContentPane();
 
         // About

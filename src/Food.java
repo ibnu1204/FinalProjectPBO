@@ -15,7 +15,6 @@ public class Food {
     public Food(int x, int y, Player player) {
         this.x = x;
         this.y = y;
-        this.score = score;
         eater = player;
         numberOfFood += 5;
     }

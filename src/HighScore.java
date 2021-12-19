@@ -10,13 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HighScore {
-	JFrame window;
-	Container con;
-	JPanel highScoreNamePanel, backButtonPanel;
-	JLabel highScoreNameLabel;
-	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-	JButton backButton;
+	public JFrame window;
+	private Container con;
+	private JPanel highScoreNamePanel, backButtonPanel;
+	private JLabel highScoreNameLabel;
+	private Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	private Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+	private JButton backButton;
 
 	/*
 	 * StartScreenHandler tsHandler = new StartScreenHandler();
@@ -24,12 +24,7 @@ public class HighScore {
 	 * HighScoreScreenHandler hssHandler = new HighScoreScreenHandler();
 	 * BackHandler bHandler = new BackHandler();
 	 */
-	HighScoreHandler hsHandler = new HighScoreHandler();
-
-	public static void main(String[] args) {
-
-		new HighScore();
-	}
+	private HighScoreHandler hsHandler = new HighScoreHandler();
 
 	public HighScore() {
 
@@ -39,7 +34,6 @@ public class HighScore {
 		window.getContentPane().setBackground(Color.black);
 		window.setLayout(null);
 		window.setLocationRelativeTo(null);
-		// window.setIconImage(logo.getImage());
 		con = window.getContentPane();
 
 		// HighScore

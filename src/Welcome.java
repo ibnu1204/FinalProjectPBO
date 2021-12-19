@@ -12,17 +12,16 @@ import javax.swing.JPanel;
 
 public class Welcome {
 
-	JFrame window;
-	Container con;
-	JPanel mainPanel = new JPanel(new BorderLayout()), titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, aboutButtonPanel;
-	JLabel titleNameLabel;
-	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-	Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-	JButton startButton, levelButton, highScoreButton, aboutButton;
+	public JFrame window;
+	private Container con;
+	private JPanel mainPanel = new JPanel(new BorderLayout()), titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, aboutButtonPanel;
+	private JLabel titleNameLabel;
+	private Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	private Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+	private JButton startButton, levelButton, highScoreButton, aboutButton;
 
-	StartScreenHandler tsHandler = new StartScreenHandler();
-	AnotherScreenHandler aHandler = new AnotherScreenHandler();
-
+	private StartScreenHandler tsHandler = new StartScreenHandler();
+	private AnotherScreenHandler aHandler = new AnotherScreenHandler();
 
 	public static void main(String[] args) {
 
@@ -34,7 +33,7 @@ public class Welcome {
 		window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.getContentPane().setBackground(Color.blue);
+		window.getContentPane().setBackground(Color.black);
 		window.setLayout(new BorderLayout());
 		window.setLocationRelativeTo(null);
 		con = window.getContentPane();
@@ -118,7 +117,9 @@ public class Welcome {
 	public class StartScreenHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
+
 			GameScreen();
+
 		}
 	}
 

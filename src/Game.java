@@ -75,12 +75,12 @@ public class Game extends JPanel {
 
         // 3 > Inisialisasi Objek2 pada game
         // a > Wall
-        if(Level.getLevel == 2) 
+        if(Level.getLevel() == 2) 
         	wall = new Wall("level_2.txt");
-        else if(Level.getLevel == 3)
+        else if(Level.getLevel() == 3)
         	wall = new Wall("level_3.txt");
         else 
-        	wall = new Wall("level_1txt");
+        	wall = new Wall("level_1.txt");
 
         // b > Player
         player = new Player(550, 500, 270);

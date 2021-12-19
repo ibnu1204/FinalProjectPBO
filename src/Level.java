@@ -1,48 +1,37 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 public class Level {
-    JFrame window;
-    Container con;
-    JPanel titleNamePanel, startButtonPanel, levelButtonPanel, highScoreButtonPanel, 
-            aboutButtonPanel, levelNamePanel, highScoreNamePanel, aboutNamePanel, easyButtonPanel, 
-            mediumButtonPanel, hardButtonPanel, backButtonPanel;
-    JLabel titleNameLabel, levelNameLabel,aboutNameLabel, aboutMessageLabel, highScoreNameLabel;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-    JButton startButton, levelButton, aboutButton, highScoreButton, easyButton, mediumButton, hardButton, backButton;
-    JTextArea mainTextArea;
-	public static int getLevel;
-    private static int chl;
+    public JFrame window;
+    private Container con;
+    private JPanel mainPanel = new JPanel(new BorderLayout()), levelNamePanel, easyButtonPanel, mediumButtonPanel, hardButtonPanel, backButtonPanel;
+    private JLabel levelNameLabel;
+    private Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+    private Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+    private JButton easyButton, mediumButton, hardButton, backButton;
+	//public static int getLevel;
+    private static int chl = 0;
 
-	LevelHandler lHandler = new LevelHandler();
+	private LevelHandler lHandler = new LevelHandler();
+	private BackHandler bHandler = new BackHandler();
 
-    //ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
-
-    public static void main(String[] args) {
-
-        new Level();
-    }
 
     public Level() {
 
-        window = new JFrame("Run & Hide 2");
+        window = new JFrame("Run & Hide");
 		window.setSize(800, 800);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.black);
-		window.setLayout(null);
+		window.setLayout(new BorderLayout());
 		window.setLocationRelativeTo(null);
-		// window.setIconImage(logo.getImage());
 		con = window.getContentPane();
+		mainPanel.setBackground(Color.black);
 
         // Level
 		levelNamePanel = new JPanel();
@@ -93,7 +82,7 @@ public class Level {
 		backButton.setBackground(Color.black);
 		backButton.setForeground(Color.white);
 		backButton.setFont(normalFont);
-		backButton.addActionListener(lHandler);
+		backButton.addActionListener(bHandler);
 		backButton.setFocusPainted(false);
 
 		levelNamePanel.add(levelNameLabel);
@@ -107,6 +96,7 @@ public class Level {
 		con.add(mediumButtonPanel);
 		con.add(hardButtonPanel);
 		con.add(backButtonPanel);
+		con.add(mainPanel);
     }
     
 
@@ -130,12 +120,13 @@ public class Level {
 		}
 	}
 	
-    public int getLevel(int chl) {
+    public static int getLevel() {
         return chl;
     }
 
 	
 	public void GameScreen() {
+		mainPanel.setVisible(false);
 		levelNamePanel.setVisible(false);
 		easyButtonPanel.setVisible(false);
 		mediumButtonPanel.setVisible(false);
@@ -145,7 +136,7 @@ public class Level {
 		window.add(game, BorderLayout.CENTER);
 	}
 	
-	public class AnotherScreenHandler implements ActionListener {
+	public class BackHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
 
