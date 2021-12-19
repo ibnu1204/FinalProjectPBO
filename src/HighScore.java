@@ -26,8 +26,6 @@ public class HighScore {
 	 */
 	HighScoreHandler hsHandler = new HighScoreHandler();
 
-	// ImageIcon logo = new ImageIcon(".//res//jackfrost.jpg");
-
 	public static void main(String[] args) {
 
 		new HighScore();
