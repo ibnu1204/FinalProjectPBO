@@ -56,27 +56,8 @@ public class Enemy extends Person{
         updateTargetParameters();
         isTargetInVision();
 
-        //switch (state) {
-        //    case RANDOM_WALK: isTargetInVision(); break;
-        //    case CHASE: isTargetInVision(); break;
-        //    case WAIT: isTargetInVision(); wait_chase(); break;
-        //}
-        // Check current state
-        // jika rw, maka lakukan is target in vision
-        // jika waiting, lakukan check clock
-        // jika
-
         if (state == RANDOM_WALK) randomWalk();
         else if (state == CHASE) chasePerson();
-        // Tentukan state dari enemy
-        //if (distance < stopChaseRadius) state = ATTACK;
-        //else state = CHASE;
-
-        // Method ini akan memanggil salah satu dari ke-... method di bawah sesuai state yang dimiliki enemy
-        //switch (state) {
-        //    case CHASE: chasePerson(); break;
-        //    case ATTACK: attack(target); break;
-        //}
     }
 
     public void attack(Person p) {
@@ -129,15 +110,11 @@ public class Enemy extends Person{
             if (state != CHASE) target.numberOfChaser += 1;
             state = CHASE;
             currentColor = chaseColor;
-            //Game.debugLabel.setText("Lari!");
-            //Game.debugLabel.setForeground(Color.red);
         }
         else {
             if (state != RANDOM_WALK) target.numberOfChaser -= 1;
             state = RANDOM_WALK;
             currentColor = walkColor;
-            //Game.debugLabel.setText("lari dan sembunyi!");
-            //Game.debugLabel.setForeground(Color.white);
         }
     }
 
