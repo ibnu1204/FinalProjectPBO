@@ -15,7 +15,6 @@ public class Level {
     private Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     private Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     private JButton easyButton, mediumButton, hardButton, backButton;
-	//public static int getLevel;
     private static int chl = 0;
 
 	private LevelHandler lHandler = new LevelHandler();
@@ -33,7 +32,7 @@ public class Level {
 		con = window.getContentPane();
 		mainPanel.setBackground(Color.black);
 
-        // Level
+       		// Level
 		levelNamePanel = new JPanel();
 		levelNamePanel.setBounds(200, 100, 400, 100);
 		levelNamePanel.setBackground(Color.black);
