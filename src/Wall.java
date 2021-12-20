@@ -18,9 +18,6 @@ public class Wall {
     private double[][] wallsUnitVector; // Menyimpan vektor satuan dari arah-arah dinding
     private int intersectedWallIndex; // index dinding yang dipotong oleh sebuah garis di method isIntersectingWall
 
-    public Wall() {
-    }
-
     public Wall (String path) {
         // Baca file level
         Scanner input = null;
